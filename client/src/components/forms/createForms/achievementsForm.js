@@ -18,7 +18,7 @@ const AchievementsForm = () => {
     <div>
         <p><strong>Achievements</strong></p>
         <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-            <TextField id="achievements-title" label="Title" onChange={(e) => setAchievementsData({ ...achievementsData, title: e.target.value })}/>
+            <TextField id="achievements-title" label="Title" onChange={(e) => setAchievementsData({achievementsData, title: e.target.value })} />
             <TextField id="achievements-description" label="Description" onChange={(e) => setAchievementsData({ ...achievementsData, description: e.target.value })}/>
             <Button  variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
         </form>

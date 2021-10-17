@@ -19,8 +19,8 @@ const PurpleSwitch = withStyles({
     track: {},
   })(Switch);
 
-
-const Visibility = (props) => {
+  
+  const Visibility = (props) => {
   var vis;
   if(localStorage.getItem('visibility') == null){
     vis = {
@@ -38,6 +38,7 @@ const Visibility = (props) => {
     vis = JSON.parse(localStorage.getItem('visibility'));
 
   }
+
   const [visibility, setVisibility] = useState({
     profile: vis.profile,
     contact: vis.contact,
@@ -48,7 +49,7 @@ const Visibility = (props) => {
     publications: vis.publications,
     achievements: vis.achievements,
   });
-
+  
   useEffect(() => { 
     props.sendData(visibility); 
     localStorage.setItem('visibility', JSON.stringify(visibility));
@@ -62,7 +63,6 @@ const Visibility = (props) => {
       [name]: value,
     });
   }
-
   return(
       <div>
           <FormGroup>
