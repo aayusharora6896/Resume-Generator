@@ -52,8 +52,8 @@ const Projects = () => {
                   <p><span className="projectSkillUsed">{ value.skills_used}</span></p> 
                   <p><span className="projectDescription1">{ value.description1}</span></p> 
                   <p><span className="projectDescription2">{ value.description2}</span></p>    
-                <DeleteButton elementId = { value._id } page = { "Projects" }/>
-                <Link to={ `/projects/${value._id}/update` } ><UpdateButton /></Link>
+                {/* <DeleteButton elementId = { value._id } page = { "Projects" }/> */}
+                {/* <Link to={ `/projects/${value._id}/update` } ><UpdateButton /></Link> */}
                </div> : <div> <VisibilityIcon onClick = {()=>handleChange(index)} /> Project {index+1} </div> }  
                </div>  
              )

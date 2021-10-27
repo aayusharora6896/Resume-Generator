@@ -56,7 +56,7 @@ router.get(
         if(err){
           res.json({"sucess": "false", "error": err});
         }else{
-          res.json(foundProfile);
+          res.json(foundProfile[0]);
         }
       })
     });

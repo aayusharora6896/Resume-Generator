@@ -8,10 +8,11 @@ import experiencesReducer from "./experiencesReducer";
 import projectsReducer from "./projectsReducer";
 import skillsReducer from "./skillsReducer";
 import publicationsReducer from "./publicationsReducer";
+import { profileVisibilityReducer } from "./profileVisibilityReducer";
+import { achievementsVisibilityReducer } from "./profileVisibilityReducer";
 
 
 const rootReducers = combineReducers({
-    // visibility: visibility,
     profile: profileReducer,
     contact: contactReducer,
     education: educationReducer,
@@ -20,6 +21,8 @@ const rootReducers = combineReducers({
     projects: projectsReducer,
     publications: publicationsReducer,
     skills: skillsReducer,
+    profileVisibility: profileVisibilityReducer,
+    achievementsVisibility: achievementsVisibilityReducer,
 });
 
 export default rootReducers;

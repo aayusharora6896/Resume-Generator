@@ -5,8 +5,11 @@ var SkillsSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
     },
-    skills_title: String,
-    skillSet: [String],
+    category: String,
+    keywords: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Keywords",
+    },
 });
 
 

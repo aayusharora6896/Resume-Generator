@@ -52,8 +52,8 @@ const handleChange = (index) => {
                 <VisibilityOffIcon onClick = {()=>handleChange(index)} /> Skill {index+1}
                   <p><span className="skillsTitle">{ value.skills_title }</span></p>
                   <p><span className="skillsSkillSet">{value.skillSet}</span></p>
-                <DeleteButton elementId = { value._id } page = { "Skills" }/>
-                <Link to={ `/skills/${value._id}/update` } ><UpdateButton /></Link>
+                {/* <DeleteButton elementId = { value._id } page = { "Skills" }/> */}
+                {/* <Link to={ `/skills/${value._id}/update` } ><UpdateButton /></Link> */}
                </div> : <div><VisibilityIcon onClick = {()=>handleChange(index)} /> Skill {index+1}</div> }
                </div>
               )

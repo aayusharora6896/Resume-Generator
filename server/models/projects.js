@@ -6,10 +6,11 @@ var ProjectSchema = new mongoose.Schema({
         ref: "User",
     },
     project_title: String,
+    dateFrom: String,
+    dateTo: String,
+    link: String,
     skills_used: [String],
-    description1: String,
-    description2: String,
-    description3: String,
+    details: [String],
 });
 
 

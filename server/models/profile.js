@@ -5,8 +5,17 @@ var ProfileSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
     },
-    first_name: String,
-    last_name: String,
+    name: String,
+    email: String,
+    phone: String,
+    github: String,
+    linkedin: String,
+    address: String,
+    website: String,
+    city: String,
+    state: String,
+    zip: String,
+    country: String,
 });
 
 

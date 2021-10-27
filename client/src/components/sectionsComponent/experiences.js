@@ -54,8 +54,8 @@ const Experiences = () => {
                   <p> . <span className="experienceWorkBreif">{ value.primary_work_breif }</span> </p>
                   <p> . <span className="experienceImpact1">{ value.impact1 }</span> </p>
                   <p> . <span className="experienceImpact2">{ value.impact2 }</span> </p>
-                <DeleteButton elementId = { value._id } page = { "Experiences" }/>
-                <Link to={ `/experiences/${value._id}/update` } ><UpdateButton /></Link>
+                {/* <DeleteButton elementId = { value._id } page = { "Experiences" }/> */}
+                {/* <Link to={ `/experiences/${value._id}/update` } ><UpdateButton /></Link> */}
                 </div> : <div><VisibilityIcon onClick = {()=>handleChange(index)} /> Experience {index+1}</div>}  
                 </div>  
               );

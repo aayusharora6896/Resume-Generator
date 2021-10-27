@@ -36,6 +36,7 @@ const Contact = () => {
         setContactVisibility(() => {
           return [...contact_vis.current]
         });
+        console.log(contactVisibility);
       }
     
       return (
@@ -49,8 +50,8 @@ const Contact = () => {
               <p><span className="contactSubTitle">Phone</span> <span className="contactPhone">{ value.phone_number }</span> | <span className="contactSubTitle">Email</span> <span className="contactEmail">{ value.mail_id }</span> | <span className="contactSubTitle">Portfolio</span> <span className="contactPortfolio">{ value.web_resume }</span></p>
               <p> <span className="contactSubTitle">Github</span> <span className="contactGithub">{ value.github }</span> | <span className="contactSubTitle">Linkedin</span> <span className="contactLinkedin">{ value.linkedIn }</span> </p>
               <p><span className="contactAddress">{ value.address1 }, { value.address2 }, { value.address_city }, { value.address_state }, { value.address_country }, { value.pincode }</span></p>
-              <DeleteButton elementId = { value._id } page = { "Contact" }/>
-              <Link to={ `/contact/${value._id}/update` } ><UpdateButton /></Link>
+              {/* <DeleteButton elementId = { value._id } page = { "Contact" }/> */}
+              {/* <Link to={ `/contact/${value._id}/update` } ><UpdateButton /></Link> */}
             </div> : <div><VisibilityIcon onClick = {()=>handleChange(index)} /> Contact {index+1}</div>}
             </div>
           )

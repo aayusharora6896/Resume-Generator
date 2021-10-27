@@ -53,8 +53,8 @@ const Publications = () => {
                 <p><span className="publicationDetails">{value.journal_conference_name}, {value.other_details}</span></p>
                 <p><span className="publicationCoauthors">{value.coauthors}</span></p>
                 <p><span className="publicationDescription">{value.brief_description}</span></p>
-                <DeleteButton elementId = { value._id } page = { "Publications" }/>
-                <Link to={ `/publications/${value._id}/update` } ><UpdateButton /></Link>
+                {/* <DeleteButton elementId = { value._id } page = { "Publications" }/> */}
+                {/* <Link to={ `/publications/${value._id}/update` } ><UpdateButton /></Link> */}
                 </div> : <div><VisibilityIcon onClick = {()=>handleChange(index)} /> Publication {index+1}</div> }
                 </div>
               );

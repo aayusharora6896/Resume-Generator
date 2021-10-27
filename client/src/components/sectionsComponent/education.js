@@ -50,8 +50,8 @@ const Education = () => {
                 {educationVisibility[index] ? <div key={index}> <VisibilityOffIcon onClick = {()=>handleChange(index)} /> Education {index+1}
                     <p><span className="educationUniversityName">{ value.university_name }</span>, <span className="educationUniversityCity">{ value.university_city }</span>, <span className="educationUniversityState">{ value.university_state }</span>  <span className="educationMonthBegin">{ value.month_begin }</span> <span className="educationYearBegin">{ value.year_begin }</span> - <span className="educationMonthEnd">{ value.month_end }</span> <span className="educationYearEnd">{ value.year_end }</span></p>
                     <p><span className="educationDegreeName">{ value.degree_name }</span> in <span className="educationDomainName">{ value.domain_name }</span> <span className="educationGpa">{ value.GPA }</span></p>
-                    <DeleteButton elementId = { value._id } page = { "Education" }/>
-                    <Link to={ `/education/${value._id}/update` } ><UpdateButton /></Link>
+                    {/* <DeleteButton elementId = { value._id } page = { "Education" }/> */}
+                    {/* <Link to={ `/education/${value._id}/update` } ><UpdateButton /></Link> */}
                   </div> : <div> <VisibilityIcon onClick = {()=>handleChange(index)} /> Education {index+1} </div>}
               </div>
               )

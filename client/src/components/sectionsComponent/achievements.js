@@ -50,8 +50,8 @@ const Achievements = () => {
                 <VisibilityOffIcon onClick = {()=>handleChange(index)} /> Achievements {index+1}         
                 <p><strong>{value.title}</strong></p>
                 <p>{value.description}</p>
-                <DeleteButton elementId = { value._id } page = { "Achievements" }/>
-                <Link to={ `/achievements/${value._id}/update` } ><UpdateButton /></Link>
+                {/* <DeleteButton elementId = { value._id } page = { "Achievements" }/> */}
+                {/* <Link to={ `/achievements/${value._id}/update` } ><UpdateButton /></Link> */}
                 </div> : <div><VisibilityIcon onClick = {()=>handleChange(index)} /> Achievements {index+1}</div>}
                 </div>
               );

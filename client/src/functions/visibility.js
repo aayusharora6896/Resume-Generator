@@ -4,6 +4,10 @@ import { withStyles } from '@material-ui/core/styles';
 import { purple } from '@material-ui/core/colors';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import ProfileVisibility from './profileVisibility';
+import AchievementsVisibility from './achievementsVisibility';
+// import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 const PurpleSwitch = withStyles({
     switchBase: {
@@ -63,13 +67,17 @@ const PurpleSwitch = withStyles({
       [name]: value,
     });
   }
+  
+  
   return(
       <div>
+        <h1>{props.profile_vis}</h1>
           <FormGroup>
           <FormControlLabel
             control={<PurpleSwitch checked={visibility.profile} onChange={handleChange} name="profile" />}
             label="Profile"
           />
+          <ProfileVisibility />
         </FormGroup>
           
        <FormGroup>
@@ -115,8 +123,17 @@ const PurpleSwitch = withStyles({
             control={<PurpleSwitch checked={visibility.achievements} onChange={handleChange} name="achievements" />}
             label="Achievements"
           />
+          <AchievementsVisibility />
         </FormGroup>
     </div>
 );
 }
-export default Visibility
+
+function mapStateToProps(state) {
+  return {
+    profile_visibility: state.profileVisibility.profile_vis,
+    achievements_visibility: state.achievementsVisibility.achievements_vis,
+  };
+}
+
+export default connect(mapStateToProps)(Visibility)

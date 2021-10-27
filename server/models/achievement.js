@@ -7,6 +7,8 @@ var AchievementSchema = new mongoose.Schema({
     },
     title: String,
     description: String,
+    dateFrom: String,
+    dateTo: String,
 });
 
 
