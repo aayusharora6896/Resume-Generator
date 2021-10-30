@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Sidebar, Segment } from 'semantic-ui-react';
+import { Sidebar, Segment, Grid } from 'semantic-ui-react';
 import AceEditor from 'react-ace';
 import { SidebarCloseButton } from '../Navigation';
 import {
@@ -12,7 +12,7 @@ import {
 } from '../../actions/app.actions';
 import { isValidJSON } from '../../helpers/resume.helper';
 import { EDITOR_STATUS, getStatusColor, getDarkStatusColor } from '../../helpers/tools.helper';
-
+import MainForm from '../Forms/MainForm';
 // import 'brace/mode/json';
 // import 'brace/theme/tomorrow_night_bright';
 // import 'brace/theme/tomorrow';
@@ -97,9 +97,12 @@ class CodeEditor extends Component {
         >
           <Segment
             style={{ height: '100%', width: '100%', backgroundColor: darkMode ? '#1f1f1f' : '#fff' }}
-            color={statusColor}
+            color={statusColor} style={{overflow: 'auto', maxHeight: '100%' }}
           >
-            <AceEditor
+            <Grid verticalAlign='middle' style={{ height: '100vh' }}>
+              <MainForm />
+            </Grid>
+            {/* <AceEditor
               mode="json"
               theme={darkMode ? 'tomorrow_night_bright' : 'tomorrow'}
               name="json-resume-editor"
@@ -110,7 +113,7 @@ class CodeEditor extends Component {
               showPrintMargin={false}
               tabSize={3}
               onChange={this.onResumeChange}
-            />
+            /> */}
           </Segment>
         </div>
       </Sidebar>
