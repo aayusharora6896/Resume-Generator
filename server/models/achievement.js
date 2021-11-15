@@ -9,6 +9,7 @@ var AchievementSchema = new mongoose.Schema({
     description: String,
     dateFrom: String,
     dateTo: String,
+    isVisible: Boolean,
 });
 
 

@@ -19,6 +19,18 @@ export const changeFont = font => ({
   font,
 });
 
+export const CHANGE_COLOR = 'CHANGE_COLOR';
+export const changeColor = color => ({
+  type: CHANGE_COLOR,
+  color,
+});
+
+export const CHANGE_FONT_SIZE = 'CHANGE_FONT_SIZE';
+export const changeFontSize = fontSize => ({
+  type: CHANGE_FONT_SIZE,
+  fontSize,
+});
+
 export const TOGGLE_SHOW_ITEM = 'TOGGLE_SHOW_ITEM';
 export const toggleShowItem = item => ({
   type: TOGGLE_SHOW_ITEM,

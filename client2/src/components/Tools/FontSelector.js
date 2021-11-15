@@ -3,19 +3,33 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Label, Icon, Button } from 'semantic-ui-react';
 import { changeFont } from '../../actions/app.actions';
-import fonts from '../../helpers/font.helper';
+import getFontsData from '../../helpers/font.helper';
 const { v4: uuidv4 } = require('uuid');
 
 class FontSelector extends Component {
+  state = {
+    // value: this.selectedColor,
+    fonts: [],
+  };
   constructor(props) {
     super(props);
     this.handleFontChange = this.handleFontChange.bind(this);
   }
 
+  async componentDidMount() {
+    try {
+    var fonts = await getFontsData();
+    // console.log(fonts);
+    this.setState({fonts: fonts.fonts});
+    // console.log(this.state.fonts)
+    }catch(error) {
+      console.log(error);
+    }
+  }
   handleFontChange(e) {
     const { dispatch } = this.props;
     const selection = e.target.selectedIndex;
-    const selectedFont = fonts[selection].font;
+    const selectedFont = this.state.fonts[selection].font;
     dispatch(changeFont(selectedFont));
   }
 
@@ -41,14 +55,14 @@ class FontSelector extends Component {
             onChange={this.handleFontChange}
             value={selectedFont}
           >
-            {fonts
-              .sort((f1, f2) => (f1.name < f2.name ? -1 : 0))
-              .map(font => (
-                <option value={font.font} key={uuidv4()}>
-                  {font.name}
-                </option>
-              ))}
-          </select>
+            {this.state.fonts
+               .sort((f1, f2) => (f1.name < f2.name ? -1 : 0))
+               .map(font => (
+                 <option value={font.font} key={uuidv4()}>
+                   {font.name}
+                 </option>
+               ))}
+           </select>
         </Button>
       </div>
     );

@@ -1,5 +1,7 @@
 import {
   CHANGE_FONT,
+  CHANGE_FONT_SIZE,
+  CHANGE_COLOR,
   TOGGLE_SHOW_ITEM,
   CHANGE_RESUME_ORDER,
   UPDATE_EDITOR_STATUS,
@@ -14,6 +16,8 @@ import { defaultResumeOrder } from '../helpers/resume.helper';
 const storedTools = loadTools();
 const initialState = {
   font: 'Source Code Pro, monospace',
+  fontSize: 10,
+  color: 'rgb(0, 120, 80)',
   showAddress: true,
   showEmail: true,
   showPhone: true,
@@ -41,6 +45,16 @@ const getItemToToggle = (state, action) => ({
 const changeFont = (state, action) => ({
   ...state,
   font: action.font,
+});
+
+const changeFontSize = (state, action) => ({
+  ...state,
+  fontSize: action.fontSize,
+});
+
+const changeColor = (state, action) => ({
+  ...state,
+  color: action.color,
 });
 
 const toggleShowItem = (state, action) => ({
@@ -80,6 +94,14 @@ export default (state = storedTools || initialState, action) => {
       return (state.autoSave
         ? saveTools(changeFont(state, action))
         : changeFont(state, action));
+        case CHANGE_FONT_SIZE:
+          return (state.autoSave
+            ? saveTools(changeFontSize(state, action))
+            : changeFontSize(state, action));
+            case CHANGE_COLOR:
+              return (state.autoSave
+                ? saveTools(changeColor(state, action))
+                : changeColor(state, action));
     case TOGGLE_SHOW_ITEM:
       return (state.autoSave
         ? saveTools(toggleShowItem(state, action))

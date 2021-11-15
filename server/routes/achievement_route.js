@@ -13,11 +13,17 @@ router.post("/user/:user_id/achievement", function(req, res){
     // var user = req.user._id;
     var title = req.body.title;
     var description = req.body.description;
-   
+    var dateFrom = req.body.dateFrom;
+    var dateTo = req.body.dateTo;
+    var isVisible = req.body.isVisible;
+    
     var newAchievement = {
         user: foundUser._id,
         title: title,
         description: description,
+        dateFrom: dateFrom,
+        dateTo: dateTo,
+        isVisible: isVisible,
     }
     Achievements.create(newAchievement, function(err, newlyCreated){
         if(err){

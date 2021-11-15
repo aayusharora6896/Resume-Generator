@@ -56,6 +56,17 @@ class KeywordForm extends Component {
               />
             </Form.Field>
           </Grid.Column>
+          <Grid.Column>
+            <Form.Field>
+              <label>Category</label>
+              <input placeholder='Category'
+                onChange={this.props.handleChange('category')}
+                name="category"
+              />
+            </Form.Field>
+          </Grid.Column>
+          </Grid.Row>
+        <Grid.Row columns='equal' style={{width: '100%'}} >
           <Grid.Column centered verticalAlign='bottom'>
            <Button type="submit">Save Skill</Button>
           </Grid.Column>

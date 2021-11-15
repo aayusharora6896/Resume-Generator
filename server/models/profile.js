@@ -10,12 +10,13 @@ var ProfileSchema = new mongoose.Schema({
     phone: String,
     github: String,
     linkedin: String,
-    address: String,
     website: String,
+    address: String,
     city: String,
     state: String,
     zip: String,
     country: String,
+    isVisible: String,
 });
 
 

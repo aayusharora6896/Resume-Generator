@@ -5,7 +5,7 @@ import DeleteButton from "./deleteButton";
 import UpdateButton from "./updateButton";
 import {  BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ProfileForm  from "../forms/updateForms/profileForm";
-import ProfileVisibility from '../../functions/profileVisibility'
+// import ProfileVisibility from '../../functions/profileVisibility'
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import { connect } from 'react-redux';
@@ -93,23 +93,23 @@ const Profile = (props) => {
           })}
           {/* <h3>{props.profile_visibility[0]}</h3> */}
           {/* <h1 key={props.profile_visibility[0]}> {props.profile_visibility?"Hi":"Bye"} </h1> */}
-          {profile.map((value, index) =>{
-            return(
-              // <div>  
-              //   {profileVisibility[index] ? <div key={index}>
-              // <VisibilityOffIcon onClick = {()=>handleChange(index)} /> Profile {index+1}
-              //   <p className="profileName">
-              //     { value.first_name } { value.last_name }
-              //   </p>
-              //   {/* <DeleteButton elementId = { value._id } page = { "Profile" }/> */}
-              //   {/* <Link to={ `/profile/${value._id}/update` } ><UpdateButton /></Link> */}
-              // </div> : <div> <VisibilityIcon onClick = {()=>handleChange(index)} /> Profile {index+1}</div>}
-              // </div>
-              <div>
+          {/* {profile.map((value, index) =>{ */}
+            {/* return( */}
+              {/* // <div>   */}
+              {/* //   {profileVisibility[index] ? <div key={index}> */}
+              {/* // <VisibilityOffIcon onClick = {()=>handleChange(index)} /> Profile {index+1} */}
+              {/* //   <p className="profileName"> */}
+              {/* //     { value.first_name } { value.last_name } */}
+              {/* //   </p> */}
+              {/* //   <DeleteButton elementId = { value._id } page = { "Profile" }/> */}
+              {/* //   <Link to={ `/profile/${value._id}/update` } ><UpdateButton /></Link> */}
+              {/* // </div> : <div> <VisibilityIcon onClick = {()=>handleChange(index)} /> Profile {index+1}</div>} */}
+              {/* // </div> */}
+              {/* // <div> */}
                 {/* {props.profile_visibility[index] ? <p className="profileName"> {value.first_name} {value.last_name}</p> : null} */}
-              </div>
-            )
-          })}
+              {/* // </div> */}
+            {/* ) */}
+          {/* })} */}
         </div>
         {/* <Switch>
           <Route path="/profile/:elementId/update">

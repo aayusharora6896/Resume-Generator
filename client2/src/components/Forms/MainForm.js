@@ -5,8 +5,13 @@ import AchievementsForm from './AchievementsForm';
 import ExperiencesForm from './ExperiencesForm';
 import SkillsForm from './SkillsForm';
 import ProjectsForm from './ProjectsForm';
+import AddSectionForm from './AddSectionForm';
+import CustomSectionForm from './CustomSectionForm';
 import Confirmation from './Confirmation';
 import Success from './Success';
+import AddColorForm from './AdminForms/addColors';
+import AddFontForm from './AdminForms/addFonts';
+import AddFontSizeForm from './AdminForms/addFontSizes';
 
 class MainForm extends Component {
     state = {
@@ -35,10 +40,35 @@ class MainForm extends Component {
         const { step } = this.state;    
         switch(step) {
           case 1:
-            return <ProfileForm
+            return <AddFontSizeForm
                       nextStep={this.nextStep} 
                       handleChange = {this.handleChange}
                    />
+          // case 1:
+          //   return <AddFontForm
+          //             nextStep={this.nextStep} 
+          //             handleChange = {this.handleChange}
+          //          />
+          // case 1:
+          //   return <AddColorForm
+          //             nextStep={this.nextStep} 
+          //             handleChange = {this.handleChange}
+          //          />
+          // case 1:
+          //   return <CustomSectionForm
+          //             nextStep={this.nextStep} 
+          //             handleChange = {this.handleChange}
+          //          />
+          // case 1:
+          //   return <AddSectionForm
+          //             nextStep={this.nextStep} 
+          //             handleChange = {this.handleChange}
+          //          />
+          // case 1:
+          //   return <ProfileForm
+          //             nextStep={this.nextStep} 
+          //             handleChange = {this.handleChange}
+          //          />
           case 2:
             return <EducationsForm
                       nextStep={this.nextStep}

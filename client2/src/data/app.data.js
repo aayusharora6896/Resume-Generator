@@ -8,6 +8,7 @@ var profileData = [];
 var projectsData = [];
 var publicationsData = [];
 var skillsData = [];
+var sectionsData = [];
 var resumeData = {};
 
 
@@ -22,6 +23,7 @@ const getComponents = async () =>  {
     projectsData  = await api.fetchComponentData('60fcc884bbed863d20b02573', 'projects');
     publicationsData  = await api.fetchComponentData('60fcc884bbed863d20b02573', 'publications');
     skillsData  = await api.fetchComponentData('60fcc884bbed863d20b02573', 'skills');
+    sectionsData  = await api.fetchComponentData('60fcc884bbed863d20b02573', 'custom_fields');
 };
 
 const getResumeData = async () => {
@@ -35,6 +37,7 @@ const getResumeData = async () => {
         projects: projectsData.data,
         publications: publicationsData.data,
         skills: skillsData.data,
+        customSections: sectionsData.data,
     }
 } 
 

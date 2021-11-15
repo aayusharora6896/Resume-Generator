@@ -23,6 +23,8 @@ const { v4: uuidv4 } = require('uuid');
 
 const Resume = ({
   font,
+  fontSize, 
+  color,
   showEducation,
   showTechSkills,
   showProjects,
@@ -36,7 +38,7 @@ const Resume = ({
     <div className={classNames('react-resume', paperSizeObj.tag, { dark: darkMode })}>
       <div
         className="resume"
-        style={{ fontFamily: font }}
+        style={{ fontFamily: font, fontSize: fontSize, color: color }}
       >
         <ResumeHeader />
         {order.map((item) => {
@@ -80,6 +82,8 @@ const Resume = ({
 
 Resume.defaultProps = {
   font: undefined,
+  fontSize: 10,
+  color: "#000",
   showEducation: true,
   showTechSkills: true,
   showProjects: true,
@@ -92,6 +96,8 @@ Resume.defaultProps = {
 
 Resume.propTypes = {
   font: PropTypes.string,
+  fontSize: PropTypes.number,
+  color: PropTypes.string,
   showEducation: PropTypes.bool,
   showTechSkills: PropTypes.bool,
   showProjects: PropTypes.bool,
@@ -112,6 +118,8 @@ const mapStateToProps = state => ({
   showExperience: state.tools.showExperience,
   showAchievements: state.tools.showAchievements,
   font: state.tools.font,
+  fontSize: state.tools.fontSize,
+  color: state.tools.color,
   order: state.tools.order,
   paperSizeObj: paperSizes.find(size => size.tag === state.tools.paperSize),
   resume: state.resume,

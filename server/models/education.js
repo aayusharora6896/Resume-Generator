@@ -12,6 +12,7 @@ var EducationSchema = new mongoose.Schema({
     domain_name: String,
     dateFrom: String,
     dateTo: String,
+    isVisible: Boolean,
 });
 
 

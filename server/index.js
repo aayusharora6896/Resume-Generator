@@ -14,6 +14,11 @@ const experienceRoutes = require("./routes/experience_route");
 const projectRoutes = require("./routes/projects_route");
 const skillsRoutes = require("./routes/skills_route");
 const publicationsRoutes = require("./routes/publication_route");
+const customFieldRoutes = require("./routes/custom_field_route");
+const fieldRoutes = require("./routes/field_route");
+const colorsRoutes = require("./routes/colors_route");
+const fontsRoutes = require("./routes/font_route");
+const fontSizesRoutes = require("./routes/font_size_route");
 const resumeRoutes = require("./routes/resume_route");
 
 // const print = require("./generate-endpoints");
@@ -62,6 +67,11 @@ app.use("/api", projectRoutes);
 app.use("/api", skillsRoutes);
 app.use("/api", publicationsRoutes);
 app.use("/api", resumeRoutes);
+app.use("/api", customFieldRoutes);
+app.use("/api", fieldRoutes);
+app.use("/api", colorsRoutes);
+app.use("/api", fontsRoutes);
+app.use("/api", fontSizesRoutes);
 
 // check forms-mongoose to create forms from mongoose schema
 // https://github.com/aluzed/react-mongoose-form-maker

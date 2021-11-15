@@ -29,10 +29,9 @@ class SkillsForm extends Component {
     render(){
         var keywordArray=[];
         for (var i = 0; i < this.state.skillFormNo; i++) {
-           keywordArray.push(<Grid.Row centered><KeywordForm 
+           keywordArray.push(<Grid.Row centered key = {i}><KeywordForm 
             nextStep={this.props.nextStep} 
             handleChange = {this.props.handleChange}
-            key = {i}
          /></Grid.Row>)         
         }
         return(
@@ -40,6 +39,7 @@ class SkillsForm extends Component {
                 <Grid.Row centered>
                   <Header textAlign='center'>
                     <h1>Skills</h1>
+                    <h4>Categorize your skills in 2-3 categories.</h4>
                   </Header>
                 </Grid.Row>
                     {keywordArray}

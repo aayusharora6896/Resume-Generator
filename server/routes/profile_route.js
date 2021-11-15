@@ -12,13 +12,33 @@ router.post("/user/:user_id/profile", function(req, res){
       if(err){
         res.json({"sucess": "false", "error": err});
       }else{ 
-    var first_name = req.body.first_name;
-    var last_name = req.body.last_name;
-
+    var name = req.body.name;
+    var email = req.body.email;
+    var phone = req.body.phone;
+    var github = req.body.github;
+    var linkedin = req.body.linkedin;
+    var website = req.body.website;
+    var address = req.body.address;
+    var city = req.body.city;
+    var state = req.body.state;
+    var zip = req.body.zip;
+    var country = req.body.country;
+    var isVisible = req.body.isVisible;
+    
     var newProfile = {
         user:  foundUser._id,
-        first_name: first_name,
-        last_name: last_name,
+        name: name,
+        email: email,
+        phone: phone,
+        github: github,
+        linkedin: linkedin,
+        website: website,
+        address: address,
+        city: city, 
+        state: state,
+        zip: zip,
+        country: country,
+        isVisible: isVisible,
     }
     Profile.create(newProfile, function(err, newlyCreated){
         if(err){

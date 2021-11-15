@@ -27,8 +27,8 @@ const App = ({
   useEffect(() => {
       async function getData () {
         resumeData = await getResumeData();
-        console.log(resumeData);
-        console.log("About to do it");
+        // console.log(resumeData);
+        // console.log("About to do it");
         dispatch(updateResume(resumeData, false));
       }
     getData();

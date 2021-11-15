@@ -12,19 +12,21 @@ router.post("/user/:user_id/project", function(req, res){
     // var user = req.body.user;
     // var user = req.user.id;
     var project_title = req.body.project_title;
+    var dateFrom = req.body.dateFrom;
+    var dateTo = req.body.dateTo;
+    var link = req.body.link;
     var skills_used = req.body.skills_used;
-    skills_used = skills_used.split(",");
-    var description1 = req.body.description1;
-    var description2 = req.body.description2;
-    var description3 = req.body.description3;
+    // skills_used = skills_used.split(",");
+    var details = req.body.details;
 
     var newProject = {
         user: foundUser._id,
         project_title: project_title,
+        dateFrom: dateFrom,
+        dateTo: dateTo,
+        link: link,
         skills_used: skills_used,
-        description1: description1,
-        description2: description2,
-        description3:  description3,
+        details: details,
     }
 
     Projects.create(newProject, function(err, newlyCreated){

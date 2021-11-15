@@ -6,10 +6,10 @@ var SkillsSchema = new mongoose.Schema({
         ref: "User",
     },
     category: String,
-    keywords: {
+    keywords: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Keywords",
-    },
+    }],
 });
 
 

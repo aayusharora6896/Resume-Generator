@@ -23,10 +23,12 @@ export const Header = ({
   showWebsite,
   showAddress,
   font,
+  color,
+  fontSize,
   showIcon,
 }) => (
-  <header className="resume-header" style={{ fontFamily: font }}>
-    <h1 style={{ fontFamily: font }}>{profile.name}</h1>
+  <header className="resume-header" style={{ fontFamily: font, color: color }}>
+    <h1 style={{ fontFamily: font, fontSize: fontSize, color: color }}>{profile.name}</h1>
     <ul>
       {showEmail
         && (
@@ -111,6 +113,8 @@ Header.propTypes = {
   showWebsite: PropTypes.bool,
   showAddress: PropTypes.bool,
   font: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  fontSize: PropTypes.number.isRequired,
   showIcon: PropTypes.bool,
 };
 
@@ -123,6 +127,8 @@ const mapStateToProps = state => ({
   showLinkedIn: state.tools.showLinkedIn,
   showWebsite: state.tools.showWebsite,
   font: state.tools.font,
+  color: state.tools.color,
+  fontSize: state.tools.fontSize,
   showIcon: state.tools.showIcon,
 });
 

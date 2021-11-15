@@ -11,34 +11,27 @@ router.post("/user/:user_id/education", function(req, res){
     }else{  
   // var user = req.body.user;
     // var user = req.user.id;
+    var school_name = req.body.school_name;
+    var school_city = req.body.university_city;
+    var school_state = req.body.university_state;
     var degree_name = req.body.degree_name;
     var domain_name = req.body.domain_name;
-    var school_name = req.body.school_name;
-    var university_name = req.body.university_name;
-    var university_city = req.body.university_city;
-    var university_state = req.body.university_state;
-    var university_country = req.body.university_country;
-    var year_begin = req.body.year_begin;
-	var month_begin = req.body.month_begin;
-    var year_end = req.body.year_end;
-	var month_end = req.body.month_end;
-	var gpa = req.body.gpa
-   
+    var dateFrom = req.body.dateFrom;
+    var dateTo = req.body.dateTo;
+    var isVisible = req.body.isVisible;
+    
     var newEducation = {
         user: foundUser._id,
+        school_name: school_name,
+        school_city: school_city,
+        school_state: school_state,
         degree_name: degree_name,
         domain_name: domain_name,
-        school_name: school_name,
-        university_name: university_name,
-        university_city: university_city,
-        university_state: university_state,
-        university_country: university_country,
-        year_begin: year_begin,
-		month_begin: month_begin,
-        year_end: year_end,
-		month_end: month_end,
-		gpa: gpa,
+        dateFrom: dateFrom,
+        dateTo: dateTo,
+        isVisible: isVisible,
     }
+    console.log(newEducation)
     Education.create(newEducation, function(err, newlyCreated){
         if(err){
             console.log(err);

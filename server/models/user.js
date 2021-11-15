@@ -14,6 +14,10 @@ var UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  userType: {
+    type: Boolean,
+    required: true
+  }
 });
 
 

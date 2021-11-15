@@ -17,16 +17,17 @@ router.post("/register", (req, res) => {
   // if (!isValid) {
   //   return res.status(400).json(errors);
   // }
-  User.findOne({ email: req.body.email }).then((user) => {
+  User.findOne({ username: req.body.username }).then((user) => {
     if (user) {
-      // errors = "Email already exist";
-      // return res.status(400).json(errors);
-      return res.status(400).json("Email already exist");
+      errors = "Username already exist";
+      return res.status(400).json(errors);
+      // return res.status(400).json("Email already exist");
     } else {
       const newUser = new User({
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
+        userType: req.body.userType,
       });
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -43,23 +44,19 @@ router.post("/register", (req, res) => {
 });
 
 
-// post Login
 router.post("/login", (req, res) => {
   // const { errors, isValid } = validateLoginInput(req.body);
-
   // Check Validation
   // if (!isValid) {
-  //   return res.status(400).json(errors);
+    // return res.status(400).json(errors);
   // }
-
-  const email = req.body.email;
+  const username = req.body.username;
   const password = req.body.password;
-  User.findOne({ email }).then((user) => {
+  User.findOne({ username }).then((user) => {
     //Check for user
     if (!user) {
-      // errors = "User not found";
-      // return res.status(404).json(errors);
-      return res.status(404).json("User not found");
+      errors.username = "User not found";
+      return res.status(404).json(errors);
     }
     //User Matched
 
@@ -68,7 +65,7 @@ router.post("/login", (req, res) => {
       if (isMatch) {
         //Password Matched
         // Payload for jwt sign
-        const payload = { user: user.id, name: user.username };
+        const payload = { user: user.id, name: user.username, role: user.userType };
 
         // Sign Token
         jwt.sign(
@@ -83,71 +80,73 @@ router.post("/login", (req, res) => {
           }
         );
       } else {
-        return res.status(400).json("Password Incorrect");
+        errors.password = "Password Incorrect";
+        return res.status(400).json(errors);
       }
     });
   });
 });
 
-router.get(
-  "/:id", function(req, res){
-          User.aggregate([{
-             $project: {
-              _id: 1,
-              username: 1,
-              email: 1,
-            } }, { $lookup: {
-              from: 'profiles',
-              localField: '_id',
-              foreignField: 'user',
-              as: 'Profile'
-            } }, { $unwind:{
-              path: '$Profile',
-            } }, { $lookup: {
-              from: 'contactdetails',
-              localField: '_id',
-              foreignField: 'user',
-              as: 'Contact Details'
-            } }, { $unwind: {
-              path: '$Contact Details',
-            } }, { $lookup: {
-              from: 'educations',
-              localField: '_id',
-              foreignField: 'user',
-              as: 'Education'
-            } }, { $lookup: {
-              from: 'projects',
-              localField: '_id',
-              foreignField: 'user',
-              as: 'Projects'
-            } }, { $lookup: {
-              from: 'experiences',
-              localField: '_id',
-              foreignField: 'user',
-              as: 'Experiences'
-            } }, { $lookup: {
-              from: 'skills',
-              localField: '_id',
-              foreignField: 'user',
-              as: 'Skills'
-            } }, { $lookup: {
-              from: 'achievements',
-              localField: '_id',
-              foreignField: 'user',
-              as: 'Achievements'
-            } }, 
-            { $match: {
 
-              _id: ObjectId(req.params.id),
-            } },  
-        ],function(err, foundUser){
-          if(err){
-            res.json({"sucess": "false", "error": err});
-          }else{
-            return res.json(foundUser);
-          }
-        }
-  );
-});
+// router.get(
+//   "/:id", function(req, res){
+//           User.aggregate([{
+//              $project: {
+//               _id: 1,
+//               username: 1,
+//               email: 1,
+//             } }, { $lookup: {
+//               from: 'profiles',
+//               localField: '_id',
+//               foreignField: 'user',
+//               as: 'Profile'
+//             } }, { $unwind:{
+//               path: '$Profile',
+//             } }, { $lookup: {
+//               from: 'contactdetails',
+//               localField: '_id',
+//               foreignField: 'user',
+//               as: 'Contact Details'
+//             } }, { $unwind: {
+//               path: '$Contact Details',
+//             } }, { $lookup: {
+//               from: 'educations',
+//               localField: '_id',
+//               foreignField: 'user',
+//               as: 'Education'
+//             } }, { $lookup: {
+//               from: 'projects',
+//               localField: '_id',
+//               foreignField: 'user',
+//               as: 'Projects'
+//             } }, { $lookup: {
+//               from: 'experiences',
+//               localField: '_id',
+//               foreignField: 'user',
+//               as: 'Experiences'
+//             } }, { $lookup: {
+//               from: 'skills',
+//               localField: '_id',
+//               foreignField: 'user',
+//               as: 'Skills'
+//             } }, { $lookup: {
+//               from: 'achievements',
+//               localField: '_id',
+//               foreignField: 'user',
+//               as: 'Achievements'
+//             } }, 
+//             { $match: {
+
+//               _id: ObjectId(req.params.id),
+//             } },  
+//         ],function(err, foundUser){
+//           if(err){
+//             res.json({"sucess": "false", "error": err});
+//           }else{
+//             return res.json(foundUser);
+//           }
+//         }
+//   );
+// });
 
 module.exports = router;

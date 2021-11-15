@@ -4,17 +4,17 @@ import { connect } from 'react-redux';
 const { v4: uuidv4 } = require('uuid');
 
 
-const Education = ({ education, font }) => (
+const Education = ({ education, font, fontSize, color }) => (
   <section data-testid="Education" className="resume-education">
-    <h2 style={{ fontFamily: font }}>Education</h2>
+    <h2 style={{ fontFamily: font, fontSize: fontSize, color: color }}>Education</h2>
     <hr />
     <ul>
       {education.map(
         ed => ed.isVisible !== false && (
         <li key={uuidv4()}>
-          <h3 style={{ fontFamily: font }}>{ed.school_name} {ed.school_city}, {ed.school_state}</h3>
+          <h3 style={{ fontFamily: font, fontSize: fontSize }}>{ed.school_name} {ed.school_city}, {ed.school_state}</h3>
           {ed.dateFrom &&
-            <h3 style={{ fontFamily: font }}>
+            <h3 style={{ fontFamily: font, fontSize: fontSize }}>
               {`${ed.dateFrom}${ed.dateTo ? ` - ${ed.dateTo}` : ''}`}
             </h3>}
           <em>{ed.degree_name} in {ed.domain_name}</em>
@@ -31,12 +31,16 @@ Education.defaultProps = {
 
 Education.propTypes = {
   education: PropTypes.arrayOf(PropTypes.shape({})),
-  font: PropTypes.string.isRequired,
+  font: PropTypes.string.isRequired, 
+  color: PropTypes.string.isRequired, 
+  fontSize: PropTypes.number.isRequired, 
 };
 
 const mapStateToProps = state => ({
   education: state.resume.education,
   font: state.tools.font,
+  color: state.tools.color,
+  fontSize: state.tools.fontSize,
 });
 
 export default connect(mapStateToProps)(Education);

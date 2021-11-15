@@ -9,6 +9,8 @@ import {
   PrintButton,
   VisibilityChanger,
   FontSelector,
+  FontSizeSelector,
+  ColorSelector,
   OrderChanger,
   DownloadButton,
   LoadFromFileButton,
@@ -18,7 +20,6 @@ import {
 } from '../Tools';
 import { toggleToolbar } from '../../actions/app.actions';
 
-// var resumeData;
 
 
 const Toolbar = ({
@@ -27,13 +28,6 @@ const Toolbar = ({
   resume,
   autoSave,
 }) => { 
-//   useEffect(() => {
-//     async function getData () {
-//     resumeData = await getResumeData();
-//     console.log(resumeData)
-//   }
-//   getData();
-// }, []);
 
   return(
   <aside>
@@ -52,6 +46,8 @@ const Toolbar = ({
       <SaveToCloudButtons />
       <EditorButton dispatch={dispatch} />
       <FontSelector />
+      <FontSizeSelector />
+      <ColorSelector />
       <VisibilityChanger />
       <OrderChanger />
       <PrintButton />

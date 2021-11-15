@@ -70,7 +70,7 @@ useEffect(()=>{
         <div>
           <h1>{count}</h1>
           <button onClick={()=>incrementCounter(count)}>Add me</button>
-          {profile.map((value, index) =>{
+          {/* {profile.map((value, index) =>{
             return(
               <div>
                 {props.profile_visibility[index] ? <div key={index}>
@@ -81,7 +81,7 @@ useEffect(()=>{
               </div> : <div> <VisibilityIcon onClick = {()=>handleChange(index)} /> Profile {index+1} </div>}
               </div> 
             )
-          })}
+          })} */}
         </div>
      )
 }

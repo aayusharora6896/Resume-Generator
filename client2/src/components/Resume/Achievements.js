@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 const { v4: uuidv4 } = require('uuid');
 
-const achievements = ({ achievements, font }) => (
+const Achievements = ({ achievements, font, fontSize, color }) => (
   <section data-testid="Achievements" className="resume-achievements">
-    <h2 style={{ fontFamily: font }}>
+    <h2 style={{ fontFamily: font, fontSize: fontSize, color: color }}>
       Achievements
     </h2>
     <hr />
@@ -13,11 +13,11 @@ const achievements = ({ achievements, font }) => (
       {achievements.map(
         achi => achi.isVisible !== false && (
         <li key={uuidv4()}>
-          <h3 style={{ fontFamily: font }}>
+          <h3 style={{ fontFamily: font, fontSize: fontSize }}>
             {achi.title}
           </h3>
           {achi.dateFrom && (
-          <h3 style={{ fontFamily: font }}>
+          <h3 style={{ fontFamily: font, fontSize: fontSize }}>
             {`${achi.dateFrom}${achi.dateTo ? ` - ${achi.dateTo}` : ''}`}
           </h3>
           )}
@@ -29,18 +29,22 @@ const achievements = ({ achievements, font }) => (
   </section>
 );
 
-achievements.defaultProps = {
+Achievements.defaultProps = {
   achievements: [],
 };
 
-achievements.propTypes = {
+Achievements.propTypes = {
   achievements: PropTypes.arrayOf(PropTypes.shape({})),
   font: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  fontSize: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({
   achievements: state.resume.achievements,
   font: state.tools.font,
+  color: state.tools.color,
+  fontSize: state.tools.fontSize,
 });
 
-export default connect(mapStateToProps)(achievements);
+export default connect(mapStateToProps)(Achievements);

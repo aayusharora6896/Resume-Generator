@@ -43,8 +43,8 @@ class EducationForm extends Component {
             <Form.Field>
               <label>School Name</label>
               <input placeholder='School Name'
-                onChange={this.props.handleChange('schoolName')}
-                name="schoolName"
+                onChange={this.props.handleChange('school_name')}
+                name="school_name"
               />
             </Form.Field>
             </Grid.Column>
@@ -52,8 +52,8 @@ class EducationForm extends Component {
             <Form.Field>
               <label>School City</label>
               <input placeholder='School City'
-                onChange={this.props.handleChange('schoolCity')}
-                name="schoolCity"
+                onChange={this.props.handleChange('school_city')}
+                name="school_city"
               />
             </Form.Field>
             </Grid.Column>
@@ -61,8 +61,8 @@ class EducationForm extends Component {
             <Form.Field>
               <label>School State</label>
               <input placeholder='School State'
-                onChange={this.props.handleChange('schoolState')}
-                name="schoolState"
+                onChange={this.props.handleChange('school_state')}
+                name="school_state"
               />
             </Form.Field>
             </Grid.Column>
@@ -72,8 +72,8 @@ class EducationForm extends Component {
             <Form.Field>
               <label>Degree Name</label>
               <input placeholder='Degree Name'
-                onChange={this.props.handleChange('degreeName')}
-                name="degreeName"
+                onChange={this.props.handleChange('degree_name')}
+                name="degree_name"
               />
             </Form.Field>
             </Grid.Column>
@@ -81,8 +81,8 @@ class EducationForm extends Component {
             <Form.Field>
               <label>Domain Name</label>
               <input placeholder='Domain Name'
-                onChange={this.props.handleChange('domainName')}
-                name="domainName"
+                onChange={this.props.handleChange('domain_name')}
+                name="domain_name"
               />
             </Form.Field>
             </Grid.Column>
@@ -103,7 +103,7 @@ class EducationForm extends Component {
                 name="dateTo"
               />
             </Form.Field>
-            </Grid.Column>
+            </Grid.Column>  
             </Grid.Row>
             </Grid>
           </Segment>
